@@ -355,25 +355,6 @@ class AcidBaseTitrationAnalyzer:
                     f.write(f"  {row['feature']}: {row['importance']:.3f}\n")
                 f.write("\n")
 
-                f.write("성능 평가 요약:\n")
-                if self.model_accuracy >= 0.9:
-                    f.write("  - 매우 높은 정확도: 모델이 새로운 데이터에서도 매우 잘 동작합니다.\n")
-                elif self.model_accuracy >= 0.8:
-                    f.write("  - 높은 정확도: 모델이 새로운 데이터에서 잘 동작합니다.\n")
-                elif self.model_accuracy >= 0.7:
-                    f.write("  - 보통 정확도: 모델의 일반화 성능이 적절합니다.\n")
-                else:
-                    f.write("  - 낮은 정확도: 모델의 일반화 성능 개선이 필요합니다.\n")
-
-                most_important_feature = self.feature_importance.iloc[0]['feature']
-                f.write(f"  - 가장 중요한 특성: {most_important_feature}\n")
-                f.write(f"  - 이 특성이 산-염기 타입 분류에 가장 큰 영향을 미칩니다.\n")
-
-                f.write("  - 모델 신뢰성: 완전히 새로운 화합물 데이터로 검증됨\n")
-                f.write("  - 실제 실험 데이터에 적용 가능한 수준입니다.\n\n")
-            else:
-                f.write("모델이 아직 훈련되지 않았습니다.\n\n")
-
             f.write("4. 분석 결론\n")
             f.write("-" * 30 + "\n")
             f.write("이 분석을 통해 다양한 산-염기 적정 반응의 특성을 파악하고,\n")
